@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Projects() {
-  const projects = [
+  /* const projects = [
     {
       title: "Custom Bioacoustic ML Classifier Development & Consulting",
       organization: "The Nature Conservancy",
@@ -10,7 +10,7 @@ export default function Projects() {
       logoWidth: 120,
       logoHeight: 60,
       description: [
-        "Developed custom ML acoustic classifier for California red-legged frogs using an audio spectrogram transformer",
+        <>Developed an acoustic classifier for California red-legged frogs using a <a href="https://github.com/Tyler-Schwenk/BirdNET-CustomClassifierSuite" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">custom automated BirdNET training framework</a></>,
         "Built a cross-platform application for conservation researchers integrating BirdNET and custom models",
       ],
       technologies: ["Machine Learning", "Audio Processing", "Conservation Technology"]
@@ -29,11 +29,11 @@ export default function Projects() {
       ],
       technologies: ["Next.js", "iOS Development", "Android Development", "Edge Computing", "IoT"]
     }
-  ];
+  ]; */
 
   return (
     <section id="projects" className="relative py-20 overflow-hidden">
-      {/* Background image */}
+      {/* Background image 
       <div className="absolute inset-0">
         <Image 
           src="/logos/trail2.jpeg"
@@ -42,12 +42,13 @@ export default function Projects() {
           className="object-cover"
           quality={90}
         />
-        {/* Dark overlay for readability */}
+        {/* Dark overlay for readability 
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
+      */}
       
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h2 className="text-4xl font-bold text-white mb-4 text-center drop-shadow-lg">
+      {/* <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* <h2 className="text-4xl font-bold text-white mb-4 text-center drop-shadow-lg">
           Featured Projects
         </h2>
         <p className="text-lg text-slate-100 mb-12 text-center max-w-3xl mx-auto drop-shadow-md">
@@ -118,8 +119,8 @@ export default function Projects() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+        </div> 
+      </div> */}
     </section>
   );
 }
