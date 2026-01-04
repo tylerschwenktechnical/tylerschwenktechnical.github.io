@@ -32,12 +32,12 @@ export default function Hero() {
         
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
+          {/* <a 
             href="#projects" 
             className="inline-block px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             View Projects
-          </a>
+          </a> */}
           <a 
             href="#contact" 
             className="inline-block px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
