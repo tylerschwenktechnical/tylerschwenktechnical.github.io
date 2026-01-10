@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Projects() {
-  /* const projects = [
+  const projects = [
     {
       title: "Custom Bioacoustic ML Classifier Development & Consulting",
       organization: "The Nature Conservancy",
@@ -12,28 +12,42 @@ export default function Projects() {
       description: [
         <>Developed an acoustic classifier for California red-legged frogs using a <a href="https://github.com/Tyler-Schwenk/BirdNET-CustomClassifierSuite" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">custom automated BirdNET training framework</a></>,
         "Built a cross-platform application for conservation researchers integrating BirdNET and custom models",
+        <>View the <a href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">2025 work report</a></>
       ],
       technologies: ["Machine Learning", "Audio Processing", "Conservation Technology"]
     },
     {
-      title: "Wildlife Surveying Platform",
+      title: "Real-time Acoustic Monitoring Platform",
       organization: "Instinct",
       organizationUrl: "https://instinctenvironmental.com/",
       logoPath: "/logos/instinct2.png",
       logoWidth: 70,
       logoHeight: 25,
       description: [
-        "Leading full-stack development of web, iOS, and Android applications for ML-powered acoustic monitoring",
-        "Building automated wildlife surveying system detecting 6,500+ species with real-time edge computing",
-        "Implementing satellite connectivity and notification systems for remote deployment"
+        "Leading re-architecture and deployment of real-time wildlife monitoring platform integrating satellite-connected sensors, cloud infrastructure, and multi-channel alerting across 50+ field devices",
+        "Built end-to-end data pipelines processing Globalstar satellite telemetry and designed scalable Google Cloud infrastructure supporting multi-tenant organizations",
+        "Extended Vue 3 web dashboard for live sensor monitoring and geospatial visualization; developing companion iOS and Android mobile applications"
       ],
-      technologies: ["Next.js", "iOS Development", "Android Development", "Edge Computing", "IoT"]
+      technologies: ["Edge Computing", "Google Cloud", "iOS/Android Development", "Satellite IoT", "Data Pipelines"]
+    },
+    {
+      title: "Marketplace Platform",
+      organization: "Trade Routes",
+      organizationUrl: "https://www.traderoutestcg.com/",
+      logoPath: "/logos/TR Logo.png",
+      logoWidth: 50,
+      logoHeight: 40,
+      description: [
+        "Architected and developed full-stack peer-to-peer marketplace from the ground up, including PostgreSQL database design, Django REST API, React frontend, and AWS cloud infrastructure",
+        "Managing business operations and technical leadership for trading card marketplace platform"
+      ],
+      technologies: ["Django", "PostgreSQL", "React", "AWS", "Full-Stack"]
     }
-  ]; */
+  ];
 
   return (
     <section id="projects" className="relative py-20 overflow-hidden">
-      {/* Background image 
+      {/* Background image */}
       <div className="absolute inset-0">
         <Image 
           src="/logos/trail2.jpeg"
@@ -42,17 +56,16 @@ export default function Projects() {
           className="object-cover"
           quality={90}
         />
-        {/* Dark overlay for readability 
+        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
-      */}
       
-      {/* <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* <h2 className="text-4xl font-bold text-white mb-4 text-center drop-shadow-lg">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <h2 className="text-4xl font-bold text-white mb-4 text-center drop-shadow-lg">
           Featured Projects
         </h2>
         <p className="text-lg text-slate-100 mb-12 text-center max-w-3xl mx-auto drop-shadow-md">
-          Delivering impactful software solutions for wildlife conservation and environmental research
+          
         </p>
         
         <div className="space-y-8">
@@ -119,8 +132,8 @@ export default function Projects() {
               </div>
             </div>
           ))}
-        </div> 
-      </div> */}
+        </div>
+      </div>
     </section>
   );
 }
