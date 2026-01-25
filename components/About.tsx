@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900">
+    <section id="about" className="py-20 bg-white dark:bg-slate-900" aria-labelledby="about-heading">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-          About
+        <h2 id="about-heading" className="text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">
+          About Tyler Schwenk Technical
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">

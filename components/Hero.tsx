@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image 
           src="/logos/el-cap.jpeg"
-          alt="El Capitan background"
+          alt="El Capitan mountain landscape - Tyler Schwenk Technical LLC background"
           fill
           className="object-cover"
           priority
