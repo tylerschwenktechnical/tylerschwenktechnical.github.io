@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://tylerschwenktechnical.com'),
+  metadataBase: new URL('https://tylerschwenktechnical.github.io'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Tyler Schwenk Technical LLC | Full-Stack Software Development",
     description: "Professional full-stack software development services specializing in bioacoustics, machine learning, and wildlife conservation technology.",
-    url: 'https://tylerschwenktechnical.com',
+    url: 'https://tylerschwenktechnical.github.io',
     siteName: 'Tyler Schwenk Technical LLC',
     locale: 'en_US',
     type: 'website',
@@ -63,27 +63,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Tyler Schwenk Technical LLC',
-    url: 'https://tylerschwenktechnical.com',
-    logo: 'https://tylerschwenktechnical.com/logos/el-cap.jpeg',
+    alternateName: 'Tyler Schwenk Technical',
+    url: 'https://tylerschwenktechnical.github.io',
+    logo: 'https://tylerschwenktechnical.github.io/logos/el-cap.jpeg',
     description: 'Professional full-stack software development services specializing in bioacoustics, machine learning, and wildlife conservation technology.',
     founder: {
       '@type': 'Person',
       name: 'Tyler Schwenk',
       jobTitle: 'Full-Stack Software Developer',
+      sameAs: [
+        'https://www.linkedin.com/in/tyler-schwenk',
+        'https://github.com/Tyler-Schwenk'
+      ],
     },
     areaServed: 'Worldwide',
     serviceType: ['Software Development', 'Machine Learning', 'Mobile App Development', 'Web Development', 'Conservation Technology'],
     knowsAbout: ['Bioacoustics', 'Machine Learning', 'React', 'Python', 'iOS Development', 'Android Development', 'Cloud Computing', 'Wildlife Conservation'],
   };
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Tyler Schwenk Technical LLC',
+    alternateName: 'Tyler Schwenk Technical',
+    url: 'https://tylerschwenktechnical.github.io',
+    description: 'Professional software development portfolio and business website',
+    author: {
+      '@type': 'Person',
+      name: 'Tyler Schwenk'
+    }
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="google-site-verification" content="nK-3Hq16vrwBZliNauAsUBFx31krIlaO3HpH3ysX01M" />
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -91,7 +110,11 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className={inter.className}>{children}</body>
