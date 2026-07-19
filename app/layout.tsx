@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "Tyler Schwenk Technical LLC | Full-Stack Software Development",
     template: "%s | Tyler Schwenk Technical LLC"
   },
-  description: "Professional full-stack software development services specializing in bioacoustics, machine learning, and wildlife conservation technology. Expert in web, mobile, and embedded systems.",
+  description: "Full-stack software development services specializing in bioacoustics, machine learning, and wildlife conservation technology.",
   keywords: ["software development", "bioacoustics", "machine learning", "full-stack developer", "Tyler Schwenk", "conservation technology", "wildlife monitoring", "React", "Next.js", "iOS development", "Android development", "Python", "TensorFlow", "BirdNET"],
   authors: [{ name: "Tyler Schwenk" }],
   creator: "Tyler Schwenk",

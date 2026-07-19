@@ -34,8 +34,8 @@ export default function Footer() {
               </svg>
             </a>
             
-            <a 
-              href="mailto:tylerschwenktechnical@gmail.com"
+            <a
+              href="mailto:tylerschwenk1@yahoo.com"
               className="hover:text-primary-400 transition-colors"
               aria-label="Email"
             >

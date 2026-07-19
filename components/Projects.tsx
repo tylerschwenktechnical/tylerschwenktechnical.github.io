@@ -49,10 +49,11 @@ export default function Projects() {
     <section id="projects" className="relative py-20 overflow-hidden" aria-labelledby="projects-heading">
       {/* Background image */}
       <div className="absolute inset-0">
-        <Image 
-          src="/logos/trail2.jpeg"
+        <Image
+          src="/logos/trail2.webp"
           alt="Mountain trail nature background"
           fill
+          sizes="100vw"
           className="object-cover"
           quality={90}
         />
@@ -61,13 +62,10 @@ export default function Projects() {
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h2 id="projects-heading" className="text-4xl font-bold text-white mb-4 text-center drop-shadow-lg">
+        <h2 id="projects-heading" className="text-4xl font-bold text-white mb-12 text-center drop-shadow-lg">
           Featured Projects
         </h2>
-        <p className="text-lg text-slate-100 mb-12 text-center max-w-3xl mx-auto drop-shadow-md">
-          
-        </p>
-        
+
         <div className="space-y-8">
           {projects.map((project, index) => (
             <div 

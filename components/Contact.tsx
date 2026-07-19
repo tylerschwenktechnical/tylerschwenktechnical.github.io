@@ -12,10 +12,6 @@ export default function Contact() {
         <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-                Tyler Schwenk Technical LLC
-              </h3>
-              
               <div className="space-y-4">
                 <div className="flex items-start">
                   <svg className="w-6 h-6 text-primary-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,11 +19,11 @@ export default function Contact() {
                   </svg>
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Email</p>
-                    <a 
-                      href="mailto:tylerschwenktechnical@gmail.com" 
+                    <a
+                      href="mailto:tylerschwenk1@yahoo.com"
                       className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium break-all"
                     >
-                      tylerschwenktechnical@gmail.com
+                      tylerschwenk1@yahoo.com
                     </a>
                   </div>
                 </div>

@@ -5,10 +5,11 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
-        <Image 
-          src="/logos/el-cap.jpeg"
+        <Image
+          src="/logos/el-cap.webp"
           alt="El Capitan mountain landscape - Tyler Schwenk Technical LLC background"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
           quality={90}
