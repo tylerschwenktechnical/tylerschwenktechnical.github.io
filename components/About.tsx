@@ -12,14 +12,14 @@ export default function About() {
               Full-Stack Development Expertise
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-              Tyler Schwenk Technical LLC provides comprehensive software development services 
-              across web, mobile, and embedded platforms. With deep expertise in modern frameworks 
-              and technologies, I deliver production-ready solutions that solve real-world problems.
+              My work focuses on the intersection of software engineering and environmental
+              conservation, building intelligent systems that help researchers and organizations
+              make data-driven decisions for wildlife protection.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-300">
-              My work focuses on the intersection of software engineering and environmental 
-              conservation, building intelligent systems that help researchers and organizations 
-              make data-driven decisions for wildlife protection.
+              Tyler Schwenk Technical LLC provides comprehensive software development services
+              across web, mobile, and embedded platforms. With deep expertise in modern frameworks
+              and technologies, I deliver production-ready solutions that solve real-world problems.
             </p>
           </div>
           

@@ -12,7 +12,8 @@ export default function Projects() {
       description: [
         <>Developed an acoustic classifier for California red-legged frogs using a <a href="https://github.com/Tyler-Schwenk/BirdNET-CustomClassifierSuite" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">custom automated BirdNET training framework</a></>,
         "Built a cross-platform application for conservation researchers integrating BirdNET and custom models",
-        <>View the <a href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">2025 work report</a></>
+        <>View the 2025 technical documentation of my model development, and field deployment guide <a href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">here</a></>,
+        <>View the 2026 technical documentation of my model development, and field deployment guide <a href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring/2026-report/report/readme" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">here</a></>
       ],
       technologies: ["Machine Learning", "Audio Processing", "Conservation Technology"]
     },
