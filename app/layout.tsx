@@ -1,8 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SITE } from "@/lib/site";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbfbfa" },
+    { media: "(prefers-color-scheme: dark)", color: "#121413" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -75,10 +83,7 @@ export default function RootLayout({
       '@type': 'Person',
       name: 'Tyler Schwenk',
       jobTitle: 'Full-Stack Software Developer',
-      sameAs: [
-        'https://www.linkedin.com/in/tyler-schwenk',
-        'https://github.com/Tyler-Schwenk'
-      ],
+      sameAs: [SITE.linkedin.url, SITE.github.url],
     },
     areaServed: 'Worldwide',
     serviceType: ['Software Development', 'Machine Learning', 'Mobile App Development', 'Web Development', 'Conservation Technology'],
@@ -99,9 +104,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="google-site-verification" content="nK-3Hq16vrwBZliNauAsUBFx31krIlaO3HpH3ysX01M" />
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -117,7 +121,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

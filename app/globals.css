@@ -2,32 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens as RGB channels; consumed through tailwind.config.ts. */
 :root {
-  --foreground-rgb: 15, 23, 42;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 241, 245, 249;
+  --canvas: 251 251 250;
+  --ink: 28 25 23;
+  --muted: 68 64 60;
+  --subtle: 120 113 108;
+  --line: 231 229 228;
+  --accent: 45 106 79;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 241, 245, 249;
-    --background-start-rgb: 15, 23, 42;
-    --background-end-rgb: 30, 41, 59;
+    --canvas: 18 20 19;
+    --ink: 236 234 232;
+    --muted: 190 185 180;
+    --subtle: 150 144 139;
+    --line: 44 47 45;
+    --accent: 134 197 164;
+    color-scheme: dark;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body {
+    @apply bg-canvas text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/20;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline outline-2 outline-offset-2 outline-accent;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center rounded-md bg-ink px-5 py-2.5 text-sm font-medium text-canvas transition-opacity hover:opacity-85;
+  }
+
+  .link {
+    @apply font-medium text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent;
   }
 }

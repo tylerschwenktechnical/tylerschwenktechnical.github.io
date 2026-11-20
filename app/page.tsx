@@ -1,17 +1,26 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Projects from "@/components/Projects";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+/**
+ * Single-page home: header, hero, work, about, contact, footer.
+ *
+ * @returns The home page.
+ */
 export default function Home() {
   return (
-    <main className="min-h-screen" role="main" aria-label="Main content">
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Projects />
+        <About />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

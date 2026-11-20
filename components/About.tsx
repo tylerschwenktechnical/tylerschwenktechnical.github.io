@@ -1,67 +1,43 @@
+import Section from "@/components/Section";
+
+const CAPABILITIES = [
+  { area: "Web and cloud", detail: "React, Vue, Django, PostgreSQL, Google Cloud, AWS" },
+  { area: "Mobile", detail: "iOS and Android applications" },
+  { area: "Machine learning", detail: "BirdNET, audio spectrogram transformers, TensorFlow" },
+  { area: "Embedded and edge", detail: "Edge computing, real-time processing, satellite IoT" },
+  { area: "Bioacoustics", detail: "Audio analysis and augmentation, scientific reporting" },
+] as const;
+
+/**
+ * Short description of the practice followed by a capabilities list.
+ *
+ * @returns The about section element.
+ */
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900" aria-labelledby="about-heading">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h2 id="about-heading" className="text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-          About
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-              Full-Stack Development Expertise
-            </h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-              My work focuses on the intersection of software engineering and environmental
-              conservation, building intelligent systems that help researchers and organizations
-              make data-driven decisions for wildlife protection.
-            </p>
-            <p className="text-lg text-slate-600 dark:text-slate-300">
-              Tyler Schwenk Technical LLC provides comprehensive software development services
-              across web, mobile, and embedded platforms. With deep expertise in modern frameworks
-              and technologies, I deliver production-ready solutions that solve real-world problems.
-            </p>
-          </div>
-          
-          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-8">
-            <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-              Technical Skills
-            </h4>
-            <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span><strong>Full-Stack Web:</strong> GCP, AWS, React </span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span><strong>Mobile Development:</strong> iOS and Android applications</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span><strong>Machine Learning:</strong> BirdNET, Audio spectrogram transformers, TensorFlow</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span><strong>Embedded Systems:</strong> Edge computing, real-time processing</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span><strong>Bioacoustics:</strong> Audio analysis & augmentation, Scientific reporting</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <Section id="about" label="About">
+      <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-muted">
+        <p>
+          I work where software engineering meets environmental conservation,
+          building systems that help researchers and organizations make
+          data-driven decisions about wildlife.
+        </p>
+        <p>
+          Tyler Schwenk Technical LLC takes on projects across web, mobile,
+          embedded, and machine learning, from first prototype through
+          deployment in the field.
+        </p>
       </div>
-    </section>
+
+      <h3 className="mt-14 text-sm font-semibold">Capabilities</h3>
+      <dl className="mt-4 grid border-t border-line sm:grid-cols-2 sm:gap-x-10">
+        {CAPABILITIES.map((item) => (
+          <div key={item.area} className="border-b border-line py-4">
+            <dt className="font-medium">{item.area}</dt>
+            <dd className="mt-1 text-sm leading-relaxed text-muted">{item.detail}</dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   );
 }

@@ -1,58 +1,49 @@
 import Image from "next/image";
+import { SITE } from "@/lib/site";
 
+/**
+ * Opening section: positioning statement, primary call to action,
+ * and a wide landscape photo.
+ *
+ * @returns The hero section element.
+ */
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/logos/el-cap.webp"
-          alt="El Capitan mountain landscape - Tyler Schwenk Technical LLC background"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
-      
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
-          Tyler Schwenk Technical LLC
+    <section id="top" aria-labelledby="hero-heading">
+      <div className="container-page pb-12 pt-16 sm:pb-16 sm:pt-24">
+        <p className="text-sm font-medium text-accent">{SITE.legalName}</p>
+        <h1
+          id="hero-heading"
+          className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl"
+        >
+          Software for conservation, wildlife monitoring, and field research.
         </h1>
-        
-        <p className="text-xl sm:text-2xl text-slate-100 mb-8 max-w-3xl mx-auto drop-shadow-md">
-          Full-Stack Software Development
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          Full-stack web, mobile, and machine learning development. Recent work
+          includes acoustic species classifiers and a satellite-connected sensor
+          platform running on devices in the field.
         </p>
-        
-        <p className="text-lg sm:text-xl text-slate-200 mb-52 max-w-2xl mx-auto drop-shadow-md">
-          Specializing in bioacoustics, machine learning, and conservation technology
-        </p>
-        
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* <a 
-            href="#projects" 
-            className="inline-block px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            View Projects
-          </a> */}
-          <a 
-            href="#contact" 
-            className="inline-block px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            Get In Touch
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a href={`mailto:${SITE.email}`} className="btn-primary">
+            Email me
+          </a>
+          <a href="#work" className="link text-sm">
+            See recent work
           </a>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg className="w-6 h-6 text-white drop-shadow-md" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+
+      <div className="container-page pb-16 sm:pb-24">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-line sm:aspect-[21/9]">
+          <Image
+            src="/logos/el-cap.webp"
+            alt="Granite cliffs above Yosemite Valley at sunset"
+            fill
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="object-cover object-[50%_60%]"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

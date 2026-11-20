@@ -1,137 +1,154 @@
 import Image from "next/image";
+import Section from "@/components/Section";
 
-export default function Projects() {
-  const projects = [
-    {
-      title: "Custom Bioacoustic ML Classifier Development & Consulting",
-      organization: "The Nature Conservancy",
-      organizationUrl: "https://www.nature.org/en-us/",
-      logoPath: "/logos/TheNatureConservancy.png",
-      logoWidth: 120,
-      logoHeight: 60,
-      description: [
-        "Developed an acoustic classifier for California red-legged frogs using a custom automated BirdNET training framework",
-        "Built a cross-platform application for conservation researchers integrating BirdNET and custom models",
-        <>View the technical documentation of my model development, and field deployment guide <a href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors">here</a></>,
-      ],
-      technologies: ["Machine Learning", "Audio Processing", "Conservation Technology"]
-    },
-    {
-      title: "Real-time Acoustic Monitoring Platform",
-      organization: "Instinct",
-      organizationUrl: "https://instinctenvironmental.com/",
-      logoPath: "/logos/instinct2.png",
-      logoWidth: 70,
-      logoHeight: 25,
-      description: [
-        "Leading re-architecture and deployment of real-time wildlife monitoring platform integrating satellite-connected sensors, cloud infrastructure, and multi-channel alerting across 50+ field devices",
-        "Built end-to-end data pipelines processing Globalstar satellite telemetry and designed scalable Google Cloud infrastructure supporting multi-tenant organizations",
-        "Extended Vue 3 web dashboard for live sensor monitoring and geospatial visualization; developing companion iOS and Android mobile applications"
-      ],
-      technologies: ["Edge Computing", "Google Cloud", "iOS/Android Development", "Satellite IoT", "Data Pipelines"]
-    },
-    {
-      title: "Marketplace Platform",
-      organization: "Trade Routes",
-      organizationUrl: "https://www.traderoutestcg.com/",
-      logoPath: "/logos/TR Logo.png",
-      logoWidth: 50,
-      logoHeight: 40,
-      description: [
-        "Architected and developed full-stack peer-to-peer marketplace from the ground up, including PostgreSQL database design, Django REST API, React frontend, and AWS cloud infrastructure",
-        "Managing business operations and technical leadership for trading card marketplace platform"
-      ],
-      technologies: ["Django", "PostgreSQL", "React", "AWS", "Full-Stack"]
-    }
-  ];
+/** Rendered edge length, in pixels, of the square logo tile. */
+const LOGO_TILE_SIZE = 44;
 
+interface Project {
+  title: string;
+  organization: string;
+  organizationUrl: string;
+  logoPath: string;
+  /** Extra classes to compensate for padding baked into a logo file. */
+  logoClassName?: string;
+  highlights: string[];
+  link?: { label: string; href: string };
+  technologies: string[];
+}
+
+const PROJECTS: Project[] = [
+  {
+    title: "Real-time acoustic monitoring platform",
+    organization: "Instinct",
+    organizationUrl: "https://instinctenvironmental.com/",
+    logoPath: "/logos/instinct2.png",
+    logoClassName: "scale-125",
+    highlights: [
+      "Leading the re-architecture and deployment of a real-time wildlife monitoring platform that ties together satellite-connected sensors, cloud infrastructure, and multi-channel alerting across 50+ field devices.",
+      "Built end-to-end pipelines for Globalstar satellite telemetry and designed multi-tenant Google Cloud infrastructure.",
+      "Extended the Vue 3 dashboard for live sensor monitoring and geospatial views. Developing companion iOS and Android apps.",
+    ],
+    technologies: ["Google Cloud", "Satellite IoT", "Edge computing", "Data pipelines", "Vue 3", "iOS", "Android"],
+  },
+  {
+    title: "Bioacoustic classifier development and consulting",
+    organization: "The Nature Conservancy",
+    organizationUrl: "https://www.nature.org/en-us/",
+    logoPath: "/logos/tnc-mark.png",
+    highlights: [
+      "Developed an acoustic classifier for California red-legged frogs using a custom automated BirdNET training framework.",
+      "Built a cross-platform application for conservation researchers that runs BirdNET alongside custom models.",
+    ],
+    link: {
+      label: "Model development and field deployment guide",
+      href: "https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring",
+    },
+    technologies: ["BirdNET", "Machine learning", "Audio processing", "Cross-platform app"],
+  },
+  {
+    title: "Trading card marketplace",
+    organization: "Trade Routes",
+    organizationUrl: "https://www.traderoutestcg.com/",
+    logoPath: "/logos/TR Logo.png",
+    highlights: [
+      "Architected and built a peer-to-peer marketplace from the ground up, covering PostgreSQL schema design, a Django REST API, a React frontend, and AWS infrastructure.",
+      "Run business operations and technical leadership for the platform.",
+    ],
+    technologies: ["Django", "PostgreSQL", "React", "AWS"],
+  },
+];
+
+/**
+ * Small white tile holding an organization logo so mixed logo shapes
+ * line up and stay legible in both color schemes. Decorative: the
+ * organization name next to it carries the link for assistive tech.
+ *
+ * @param props - The project whose logo is shown.
+ * @returns A logo tile.
+ */
+function LogoTile({ project }: { project: Project }) {
   return (
-    <section id="projects" className="relative py-20 overflow-hidden" aria-labelledby="projects-heading">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/logos/trail2.webp"
-          alt="Mountain trail nature background"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          quality={90}
-        />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h2 id="projects-heading" className="text-4xl font-bold text-white mb-12 text-center drop-shadow-lg">
-          Featured Projects
-        </h2>
+    <div
+      className="shrink-0 overflow-hidden rounded-md border border-line bg-white"
+      style={{ width: LOGO_TILE_SIZE, height: LOGO_TILE_SIZE }}
+    >
+      <Image
+        src={project.logoPath}
+        alt=""
+        width={LOGO_TILE_SIZE}
+        height={LOGO_TILE_SIZE}
+        className={`h-full w-full object-contain p-1 ${project.logoClassName ?? ""}`}
+      />
+    </div>
+  );
+}
 
-        <div className="space-y-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
-                <div className="flex-shrink-0">
-                  <a 
-                    href={project.organizationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-white px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <Image 
-                      src={project.logoPath}
-                      alt={`${project.organization} logo`}
-                      width={project.logoWidth}
-                      height={project.logoHeight}
-                      className="object-contain"
-                    />
-                  </a>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <a 
-                    href={project.organizationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors inline-flex items-center gap-1"
-                  >
-                    {project.organization}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <ul className="space-y-2 mb-6">
-                {project.description.map((item, i) => (
-                  <li key={i} className="flex items-start text-slate-600 dark:text-slate-300">
-                    <svg className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, i) => (
-                  <span 
-                    key={i}
-                    className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm font-medium rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+/**
+ * One project entry: client, title, highlights, optional reference link,
+ * and the technologies involved.
+ *
+ * @param props - The project to render.
+ * @returns A list item for the work list.
+ */
+function ProjectEntry({ project }: { project: Project }) {
+  return (
+    <li className="py-10 first:pt-0 last:pb-0">
+      <div className="flex items-center gap-3">
+        <LogoTile project={project} />
+        <a
+          href={project.organizationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-muted transition-colors hover:text-ink"
+        >
+          {project.organization}
+        </a>
       </div>
-    </section>
+
+      <h3 className="mt-4 text-xl font-semibold tracking-tight">{project.title}</h3>
+
+      <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-muted marker:text-subtle">
+        {project.highlights.map((highlight) => (
+          <li key={highlight}>{highlight}</li>
+        ))}
+      </ul>
+
+      {project.link && (
+        <a
+          href={project.link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link mt-4 inline-block text-sm"
+        >
+          {project.link.label} &#8599;
+        </a>
+      )}
+
+      <ul className="mt-5 flex flex-wrap gap-x-2 text-sm text-subtle" aria-label="Technologies">
+        {project.technologies.map((tech, index) => (
+          <li key={tech} className="whitespace-nowrap">
+            {index > 0 && <span aria-hidden="true" className="mr-2">·</span>}
+            {tech}
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
+/**
+ * Selected client work, most recent first.
+ *
+ * @returns The work section element.
+ */
+export default function Projects() {
+  return (
+    <Section id="work" label="Selected work">
+      <ol className="divide-y divide-line">
+        {PROJECTS.map((project) => (
+          <ProjectEntry key={project.title} project={project} />
+        ))}
+      </ol>
+    </Section>
   );
 }

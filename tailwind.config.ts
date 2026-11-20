@@ -1,26 +1,33 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Builds a Tailwind color value backed by a CSS variable holding
+ * space-separated RGB channels, so opacity modifiers keep working.
+ *
+ * @param name - CSS variable name without the leading dashes.
+ * @returns A Tailwind-compatible color string.
+ */
+function themeColor(name: string): string {
+  return `rgb(var(--${name}) / <alpha-value>)`;
+}
+
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
+        canvas: themeColor("canvas"),
+        ink: themeColor("ink"),
+        muted: themeColor("muted"),
+        subtle: themeColor("subtle"),
+        line: themeColor("line"),
+        accent: themeColor("accent"),
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
     },
   },
