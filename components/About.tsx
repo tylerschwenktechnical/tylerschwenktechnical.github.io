@@ -4,7 +4,6 @@ const SKILLS = [
   { area: "Full-Stack Web", detail: "GCP, AWS, React" },
   { area: "Mobile Development", detail: "iOS and Android applications" },
   { area: "Machine Learning", detail: "BirdNET, Audio spectrogram transformers, TensorFlow" },
-  { area: "Embedded Systems", detail: "Edge computing, real-time processing" },
   { area: "Bioacoustics", detail: "Audio analysis & augmentation, Scientific reporting" },
 ] as const;
 

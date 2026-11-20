@@ -12,7 +12,7 @@ export default function Hero() {
     <section
       id="top"
       aria-labelledby="hero-heading"
-      className="relative flex min-h-[min(85svh,52rem)] items-end overflow-hidden bg-neutral-900"
+      className="relative flex min-h-[min(85svh,52rem)] flex-col overflow-hidden bg-neutral-900"
     >
       <Image
         src="/logos/el-cap.webp"
@@ -22,15 +22,17 @@ export default function Hero() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-      <div className="container-page relative pb-16 pt-32 sm:pb-24">
+      <div className="container-page relative flex flex-1 flex-col pb-16 pt-16 sm:pb-24 sm:pt-20">
         <h1
           id="hero-heading"
-          className="max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl"
+          className="max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-neutral-900 sm:text-6xl"
         >
           {SITE.legalName}
         </h1>
+        {/* The name sits in the sky; this pushes the rest down into the valley. */}
+        <div className="flex-1" />
         <p className="mt-5 text-xl font-medium text-white sm:text-2xl">
           Full-Stack Software Development
         </p>
