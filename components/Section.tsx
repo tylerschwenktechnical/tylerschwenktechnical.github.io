@@ -19,7 +19,7 @@ export default function Section({ id, label, children }: SectionProps) {
   const headingId = `${id}-heading`;
 
   return (
-    <section id={id} aria-labelledby={headingId} className="scroll-mt-14 border-t border-line">
+    <section id={id} aria-labelledby={headingId} className="border-t border-line">
       <div className="container-page grid gap-6 py-16 sm:py-24 md:grid-cols-[10rem_1fr] md:gap-12">
         <h2 id={headingId} className="text-sm font-semibold text-ink md:pt-1">
           {label}

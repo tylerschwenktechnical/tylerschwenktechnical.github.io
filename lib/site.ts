@@ -14,13 +14,6 @@ export const SITE = {
   },
   linkedin: {
     url: "https://www.linkedin.com/in/tyler-schwenk-939570224/",
-    label: "linkedin.com/in/tyler-schwenk",
+    label: "linkedin.com/in/tyler-schwenk-939570224",
   },
 } as const;
-
-/** Primary navigation entries, in page order. */
-export const NAV_ITEMS = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;

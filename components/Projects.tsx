@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Section from "@/components/Section";
 
@@ -11,50 +12,56 @@ interface Project {
   logoPath: string;
   /** Extra classes to compensate for padding baked into a logo file. */
   logoClassName?: string;
-  highlights: string[];
-  link?: { label: string; href: string };
+  description: ReactNode[];
   technologies: string[];
 }
 
 const PROJECTS: Project[] = [
   {
-    title: "Real-time acoustic monitoring platform",
+    title: "Custom Bioacoustic ML Classifier Development & Consulting",
+    organization: "The Nature Conservancy",
+    organizationUrl: "https://www.nature.org/en-us/",
+    logoPath: "/logos/tnc-mark.png",
+    description: [
+      "Developed an acoustic classifier for California red-legged frogs using a custom automated BirdNET training framework",
+      "Built a cross-platform application for conservation researchers integrating BirdNET and custom models",
+      <>
+        View the technical documentation of my model development, and field deployment guide{" "}
+        <a
+          href="https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
+          here
+        </a>
+      </>,
+    ],
+    technologies: ["Machine Learning", "Audio Processing", "Conservation Technology"],
+  },
+  {
+    title: "Real-time Acoustic Monitoring Platform",
     organization: "Instinct",
     organizationUrl: "https://instinctenvironmental.com/",
     logoPath: "/logos/instinct2.png",
     logoClassName: "scale-125",
-    highlights: [
-      "Leading the re-architecture and deployment of a real-time wildlife monitoring platform that ties together satellite-connected sensors, cloud infrastructure, and multi-channel alerting across 50+ field devices.",
-      "Built end-to-end pipelines for Globalstar satellite telemetry and designed multi-tenant Google Cloud infrastructure.",
-      "Extended the Vue 3 dashboard for live sensor monitoring and geospatial views. Developing companion iOS and Android apps.",
+    description: [
+      "Leading re-architecture and deployment of real-time wildlife monitoring platform integrating satellite-connected sensors, cloud infrastructure, and multi-channel alerting across 50+ field devices",
+      "Built end-to-end data pipelines processing Globalstar satellite telemetry and designed scalable Google Cloud infrastructure supporting multi-tenant organizations",
+      "Extended Vue 3 web dashboard for live sensor monitoring and geospatial visualization; developing companion iOS and Android mobile applications",
     ],
-    technologies: ["Google Cloud", "Satellite IoT", "Edge computing", "Data pipelines", "Vue 3", "iOS", "Android"],
+    technologies: ["Edge Computing", "Google Cloud", "iOS/Android Development", "Satellite IoT", "Data Pipelines"],
   },
   {
-    title: "Bioacoustic classifier development and consulting",
-    organization: "The Nature Conservancy",
-    organizationUrl: "https://www.nature.org/en-us/",
-    logoPath: "/logos/tnc-mark.png",
-    highlights: [
-      "Developed an acoustic classifier for California red-legged frogs using a custom automated BirdNET training framework.",
-      "Built a cross-platform application for conservation researchers that runs BirdNET alongside custom models.",
-    ],
-    link: {
-      label: "Model development and field deployment guide",
-      href: "https://tnc-conservation-technology.gitbook.io/acoustic-frog-monitoring",
-    },
-    technologies: ["BirdNET", "Machine learning", "Audio processing", "Cross-platform app"],
-  },
-  {
-    title: "Trading card marketplace",
+    title: "Marketplace Platform",
     organization: "Trade Routes",
     organizationUrl: "https://www.traderoutestcg.com/",
     logoPath: "/logos/TR Logo.png",
-    highlights: [
-      "Architected and built a peer-to-peer marketplace from the ground up, covering PostgreSQL schema design, a Django REST API, a React frontend, and AWS infrastructure.",
-      "Run business operations and technical leadership for the platform.",
+    description: [
+      "Architected and developed full-stack peer-to-peer marketplace from the ground up, including PostgreSQL database design, Django REST API, React frontend, and AWS cloud infrastructure",
+      "Managing business operations and technical leadership for trading card marketplace platform",
     ],
-    technologies: ["Django", "PostgreSQL", "React", "AWS"],
+    technologies: ["Django", "PostgreSQL", "React", "AWS", "Full-Stack"],
   },
 ];
 
@@ -84,8 +91,8 @@ function LogoTile({ project }: { project: Project }) {
 }
 
 /**
- * One project entry: client, title, highlights, optional reference link,
- * and the technologies involved.
+ * One project entry: client, title, description bullets, and the
+ * technologies involved.
  *
  * @param props - The project to render.
  * @returns A list item for the work list.
@@ -108,21 +115,10 @@ function ProjectEntry({ project }: { project: Project }) {
       <h3 className="mt-4 text-xl font-semibold tracking-tight">{project.title}</h3>
 
       <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-muted marker:text-subtle">
-        {project.highlights.map((highlight) => (
-          <li key={highlight}>{highlight}</li>
+        {project.description.map((item, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
-
-      {project.link && (
-        <a
-          href={project.link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link mt-4 inline-block text-sm"
-        >
-          {project.link.label} &#8599;
-        </a>
-      )}
 
       <ul className="mt-5 flex flex-wrap gap-x-2 text-sm text-subtle" aria-label="Technologies">
         {project.technologies.map((tech, index) => (
@@ -137,13 +133,13 @@ function ProjectEntry({ project }: { project: Project }) {
 }
 
 /**
- * Selected client work, most recent first.
+ * Featured client projects.
  *
  * @returns The work section element.
  */
 export default function Projects() {
   return (
-    <Section id="work" label="Selected work">
+    <Section id="projects" label="Featured Projects">
       <ol className="divide-y divide-line">
         {PROJECTS.map((project) => (
           <ProjectEntry key={project.title} project={project} />
